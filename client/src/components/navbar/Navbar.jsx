@@ -26,10 +26,10 @@ const Navbar = () => {
         ) : (
           <div className="navItems">
             <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
-            <Link to={{pathname: "https://quick-fix-stays-admin.netlify.app"}} target="_blank">
-              <button className="navButton">Admin</button>
+            <Link to="/login">
+              <button className="navButton">Login</button>
             </Link>
+              <button className="navButton"> <a href="https://quick-fix-stays-admin.netlify.app">Admin</a></button>
           </div>
         )}
       </div>
