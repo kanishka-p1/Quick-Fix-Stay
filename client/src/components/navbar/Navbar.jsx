@@ -4,7 +4,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+  const handleClick = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGOUT" });
+  };
 
   return (
     <div className="navbar">
@@ -13,7 +17,12 @@ const Navbar = () => {
           <span className="logo">Quick Fix Stays</span>
         </Link>
         {user ? (
-          user.username
+          <>
+            {user.username}
+            <button className="navButton" onClick={handleClick}>
+              Logout
+            </button>
+          </>
         ) : (
           <div className="navItems">
             <button className="navButton">Register</button>
