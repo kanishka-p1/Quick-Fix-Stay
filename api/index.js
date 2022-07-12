@@ -25,7 +25,8 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middlewares
-app.use(cors());
+app.use(cors({origin: ["https://quick-fix-stays-admin.netlify.app", "https://quick-fix-stays.netlify.app"], credentials: true}));
+app.use(cors({origin: "http://localhost:3000", credentials: true}));
 app.use(cookieParser());
 app.use(express.json());
 

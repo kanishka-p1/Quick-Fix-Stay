@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+const API_URL = "https://quick-fix-stays.herokuapp.com"
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
@@ -11,7 +12,8 @@ const useFetch = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(url);
+        const res = await axios.get(`${API_URL}${url}`);
+        // const res = await axios.get(url);
         setData(res.data);
       } catch (err) {
         setError(err);
@@ -24,7 +26,8 @@ const useFetch = (url) => {
   const reFetch = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(url);
+      const res = await axios.get(`${API_URL}${url}`);
+      // const res = await axios.get(url);
       setData(res.data);
     } catch (err) {
       setError(err);
